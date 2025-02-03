@@ -7,6 +7,6 @@ namespace TaskTracker_CRUD.Server.Data
     {
         public TrackedTaskContext(DbContextOptions<TrackedTaskContext> options) : base(options) { }
 
-        public DbSet<TrackedTask> Examples { get; set; }
+        public DbSet<TrackedTask> TrackedTasks { get; set; }
     }
 }

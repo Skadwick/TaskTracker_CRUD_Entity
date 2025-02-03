@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskTracker_CRUD.Server.Data;
 
@@ -10,9 +11,11 @@ using TaskTracker_CRUD.Server.Data;
 namespace TaskTracker_CRUD.Server.Migrations
 {
     [DbContext(typeof(TrackedTaskContext))]
-    partial class TrackedTaskContextModelSnapshot : ModelSnapshot
+    [Migration("20250203230509_mssql_migration_743")]
+    partial class mssql_migration_743
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
