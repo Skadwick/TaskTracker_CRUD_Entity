@@ -25,24 +25,24 @@ public class TrackedTaskController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<TrackedTask>> Get(int id)
     {
-        var example = await _context.TrackedTasks.FindAsync(id);
-        if (example == null) return NotFound();
-        return example;
+        var trackedTask = await _context.TrackedTasks.FindAsync(id);
+        if (trackedTask == null) return NotFound();
+        return trackedTask;
     }
 
     [HttpPost]
-    public async Task<ActionResult<TrackedTask>> Post(TrackedTask example)
+    public async Task<ActionResult<TrackedTask>> Post(TrackedTask trackedTask)
     {
-        _context.TrackedTasks.Add(example);
+        _context.TrackedTasks.Add(trackedTask);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(Get), new { id = example.Id }, example);
+        return CreatedAtAction(nameof(Get), new { id = trackedTask.Id }, trackedTask);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, TrackedTask example)
+    public async Task<IActionResult> Put(int id, TrackedTask trackedTask)
     {
-        if (id != example.Id) return BadRequest();
-        _context.Entry(example).State = EntityState.Modified;
+        if (id != trackedTask.Id) return BadRequest();
+        _context.Entry(trackedTask).State = EntityState.Modified;
         await _context.SaveChangesAsync();
         return NoContent();
     }
@@ -50,9 +50,9 @@ public class TrackedTaskController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var example = await _context.TrackedTasks.FindAsync(id);
-        if (example == null) return NotFound();
-        _context.TrackedTasks.Remove(example);
+        var trackedTask = await _context.TrackedTasks.FindAsync(id);
+        if (trackedTask == null) return NotFound();
+        _context.TrackedTasks.Remove(trackedTask);
         await _context.SaveChangesAsync();
         return NoContent();
     }
