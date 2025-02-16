@@ -5,6 +5,7 @@ using TaskTracker_CRUD.Server.Models;
 
 namespace TaskTracker_CRUD.Server.Controllers;
 
+
 [Route("api/[controller]")]
 [ApiController]
 public class TrackedTaskController : ControllerBase
@@ -16,10 +17,11 @@ public class TrackedTaskController : ControllerBase
         _context = context;
     }
 
+
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TrackedTask>>> Get()
     {
-        return await _context.TrackedTasks.ToListAsync();
+        return await _context.TrackedTasks.ToListAsync(); ;
     }
 
     [HttpGet("{id}")]
